@@ -1,2 +1,2 @@
-# pnwultimate
-Website for the PNW Smash Bros Ultimate Scene
+# waultimate
+Website for the Washington Smash Bros Ultimate Scene
