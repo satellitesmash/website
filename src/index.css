@@ -1,0 +1,35 @@
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.nav-link {
+	margin-right: .3rem;
+}
+
+#playlistContainer {
+	flex-direction: column;
+}
+
+main {
+	margin: 2rem 0rem;
+}
+
+/*
+for different sized browsers
+*/
+@media (min-width: 900px) {
+
+	.nav-link {
+		margin-right: 1rem;
+	}
+
+	#playlistContainer {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	#playerArea {
+		width: 60%;
+	}
+
+}
