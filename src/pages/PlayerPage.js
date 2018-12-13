@@ -27,7 +27,7 @@ class PlayerPage extends Component {
         let player = this.state.player;
         return (
             <React.Fragment>
-                {player &&
+                {player ?
                     <Container id="playerArea">
                         <Row style={{ alignItems: 'center' }}>
                             <Col style={{ textAlign: 'center' }}>
@@ -65,7 +65,10 @@ class PlayerPage extends Component {
                                 <h3>Rankings</h3>
                             </Col>
                         </Row>
-                    </Container>}
+                    </Container> :
+                    <div style={{ textAlign: 'center', marginTop: '4rem', marginBottom: '4rem' }}>
+                        <img alt="loading symbol" src={require("../assets/loader.gif")}></img>
+                    </div>}
             </React.Fragment>
         );
     }

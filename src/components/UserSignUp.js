@@ -22,16 +22,18 @@ class UserSignUp extends Component {
             .then((firebaseUser) => {
                 let id = firebaseUser.user.uid;
                 let data = {
-                    region: "", bio: "", displayName: this.state.displayName, twitter: '', main: ''
+                    region: "", bio: "", displayName: this.state.displayName, twitter: '', main: '', secondary: '',
+                    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg'
                 }
                 let userRef = firebase.database().ref("userData").child(`${id}`);
                 userRef.set({ data: data })
                 firebase.auth().currentUser.updateProfile({
-                    displayName: this.state.displayName
+                    displayName: this.state.displayName,
+                    photoURL: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg'
                 }).then(() => {
                     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
                     window.location.hash = "#/profile";
-                }); 
+                });
             }).catch((err) => this.setState({ errorMessage: err.message }));
     }
 
@@ -59,10 +61,10 @@ class UserSignUp extends Component {
                             <Input type="password" name="password" autoComplete="current-password" value={this.state.password} onChange={(event) => this.updateValue("password", event.target.value)} id="examplePassword" placeholder="Password" />
                         </FormGroup>
                         {this.state.errorMessage && <Alert color="danger">{this.state.errorMessage}</Alert>}
-                        <div style={{textAlign: 'center'}}>
+                        <div style={{ textAlign: 'center' }}>
                             <Button onClick={(event) => this.signUp(event)} color="primary">Sign Up</Button>
                         </div>
-                        <div style={{textAlign: 'center', padding: '5px', paddingTop: '80px', paddingBottom: '50px'}}>
+                        <div style={{ textAlign: 'center', padding: '5px', paddingTop: '80px', paddingBottom: '50px' }}>
                             <a href="#/signin">Already have an account? Sign in here.</a>
                         </div>
                     </Form>
