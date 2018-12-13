@@ -18,7 +18,10 @@ class ProfileField extends Component {
 			bio: '',
 			twitter: '',
 			confirm: null,
-			error: null
+			error: null,
+			main: '',
+			secondary: '',
+			showLoader: false
 		}
 	}
 
@@ -35,12 +38,17 @@ class ProfileField extends Component {
 				region: fromDB.region,
 				twitter: fromDB.twitter,
 				main: fromDB.main,
-				ready: true
+				ready: true,
+				secondary: fromDB.secondary
 			});
 		})
 	}
 
 	updateInformation = () => {
+		this.setState({
+			error: null,
+			confirm: null
+		});
 		let user = firebase.auth().currentUser;
 		// if (this.state.email !== this.props.email) {
 		// 	user.updateEmail(this.state.email).then((user)=> console.log(user));
@@ -57,6 +65,7 @@ class ProfileField extends Component {
 			main: this.state.main,
 			secondary: this.state.secondary
 		}
+		this.toggleLoader();
 		this.userRef.set(data)
 			.then(() => {
 				if (this.state.profilePic) {
@@ -67,17 +76,26 @@ class ProfileField extends Component {
 							user.updateProfile(
 								updateInfo
 							).then(() => {
+								firebase.database().ref(`userData/${user.uid}`).child('data/photoUrl').set(updateInfo.photoURL);
 								this.setState({ confirm: "Information successfully updated!", photoURL: updateInfo.photoURL });
+								this.toggleLoader();
 							});
 						});
 					})
 				} else {
 					user.updateProfile(
 						updateInfo
-					).then(() => this.setState({ confirm: "Information successfully updated!" }));
+					).then(() => {
+						this.setState({ confirm: "Information successfully updated!" });
+						this.toggleLoader();
+					});
 				}
 			})
 			.catch((err) => this.setState({ error: err.message }));
+	}
+
+	toggleLoader = () => {
+		this.setState({ showLoader: !this.state.showLoader });
 	}
 
 	updateValue = (name, value) => {
@@ -109,8 +127,8 @@ class ProfileField extends Component {
 					</Input>
 				</FormGroup>
 				<FormGroup>
-					<Label for="exampleSelect">Secondary(s)</Label>
-					<Input type="select" value={this.state.secondary} onChange={(event) => this.updateValue("secondary", event.target.value)} name="select" id="exampleSelect">
+					<Label for="secondarySelect">Secondary(s)</Label>
+					<Input type="select" value={this.state.secondary} onChange={(event) => this.updateValue("secondary", event.target.value)} name="select" id="secondarySelect">
 						{characterOptions.map((character, i) => {
 							return <option key={"character" + i}>{character}</option>
 						})}
@@ -145,6 +163,7 @@ class ProfileField extends Component {
 				<Button onClick={this.updateInformation}>Update</Button>
 				{this.state.confirm && <Alert color="success">{this.state.confirm}</Alert>}
 				{this.state.error && <Alert color="danger">{this.state.error}</Alert>}
+				{this.state.showLoader && <img style={{ marginLeft: '1rem' }} alt="loading symbol" src={require("../assets/loader.gif")}></img>}
 			</Form>
 		);
 	}

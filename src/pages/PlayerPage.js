@@ -43,7 +43,7 @@ class PlayerPage extends Component {
                             <Col>
                                 <ListGroup>
                                     <ListGroupItem style={{ textAlign: 'center' }}>
-                                        <img alt="profile" src={require("../assets/avatar.jpg")} width="200" height="200"></img>
+                                        <img alt="profile" src={player.photoUrl || require('../assets/avatar.jpg')} width="200" height="200"></img>
                                     </ListGroupItem>
                                 </ListGroup>
                             </Col>
