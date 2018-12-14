@@ -17,7 +17,7 @@ class Footer extends Component {
                             <h5 className="text-uppercase">Navigation</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <Link to="/">Home</Link>
+                                    <Link to="/home">Home</Link>
                                 </li>
                                 <li>
                                     <Link to="/database">Database</Link>
@@ -26,32 +26,25 @@ class Footer extends Component {
                                     <Link to="/calendar">Calendar</Link>
                                 </li>
                                 <li>
+                                    <Link to="/vods">VODS / Streams</Link>
+                                </li>
+                                <li>
                                     <Link to="/services">Services</Link>
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-md-3 mb-md-0 mb-3">
+                        {/* <div className="col-md-3 mb-md-0 mb-3">
                             <h5 className="text-uppercase">Support</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <Link to="/services">Contact us!</Link>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 2</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 3</a>
-                                </li>
-                                <li>
-                                    <a href="#!">Link 4</a>
+                                    <Link to="/services">Contact Us</Link>
                                 </li>
                             </ul>
-
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/"> SatelliteSmash</a>
+                    <a href="https://mdbootstrap.com/education/bootstrap/"> SatelliteSmash</a>
                 </div>
             </footer>
         );

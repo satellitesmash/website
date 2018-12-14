@@ -29,8 +29,7 @@ export default class NavBar extends React.Component {
                 this.setState({
                     user: firebaseUser
                 })
-            }
-            else { //firebaseUser undefined: is not logged in
+            } else {
                 this.setState({
                     user: null
                 })
@@ -60,23 +59,23 @@ export default class NavBar extends React.Component {
                                 <Link className="nav-link" to="/home">Home</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/news">News</Link>
+                                <Link className="nav-link" to="/database">Database</Link>
                             </NavItem>
+                            {/* <NavItem>
+                                <Link className="nav-link" to="/news">News</Link>
+                            </NavItem> */}
                             <NavItem>
                                 <Link className="nav-link" to="/calendar">Calendar</Link>
                             </NavItem>
                             <NavItem>
                                 <Link className="nav-link" to="/vods">VODS / Streams</Link>
                             </NavItem>
-                            <NavItem>
-                                <Link className="nav-link" to="/database">Database</Link>
-                            </NavItem>
-                            <NavItem>
+                            {/* <NavItem>
                                 <Link className="nav-link" to="/rankings">Rankings</Link>
-                            </NavItem>
-                            <NavItem>
+                            </NavItem> */}
+                            {/* <NavItem>
                                 <Link className="nav-link" to="/services">Services</Link>
-                            </NavItem>
+                            </NavItem> */}
                             {this.state.user && 
                             <NavItem>
                                 <Link className="nav-link" to="/profile">Profile</Link>
