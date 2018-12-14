@@ -11,6 +11,10 @@ code {
 	color: white;
 }
 
+#brand-pic {
+	padding-left: 10px;
+}
+
 footer a {
 	color: rgba(255,255,255,.75);
 }

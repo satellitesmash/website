@@ -51,7 +51,16 @@ export default class NavBar extends React.Component {
         return (
             <div>
                 <Navbar className="nav-color" dark expand="md">
-                    <Link style={{ color: 'black' }} to="/home"><NavItem className="navbar-brand">WA Ultimate</NavItem></Link>
+                    <Link style={{ color: 'black' }} to="/home">
+                        <NavItem className="navbar-brand" style={{ paddingTop: '0' }}>
+                            <div style={{ display: 'flex', marginTop: '5px' }}>
+                                <h5 style={{ paddingTop: '5px', display: 'inline-block' }}>WA Smash Ultimate</h5>
+                                <div style={{ display: 'inline-block' }}>
+                                    <img id="brand-pic" width="40" src={require("../assets/WASmashWhite.png")} alt=""></img>
+                                </div>
+                            </div>
+                        </NavItem>
+                    </Link>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -76,14 +85,14 @@ export default class NavBar extends React.Component {
                             {/* <NavItem>
                                 <Link className="nav-link" to="/services">Services</Link>
                             </NavItem> */}
-                            {this.state.user && 
-                            <NavItem>
-                                <Link className="nav-link" to="/profile">Profile</Link>
-                            </NavItem>
+                            {this.state.user &&
+                                <NavItem>
+                                    <Link className="nav-link" to="/profile">Profile</Link>
+                                </NavItem>
                             }
                             <NavItem>
                                 {this.state.user ?
-                                    <Button onClick={() => firebase.auth().signOut()}color="danger">Log Out</Button>
+                                    <Button onClick={() => firebase.auth().signOut()} color="danger">Log Out</Button>
                                     :
                                     <Link to="/signin">
                                         <Button color="primary">Log In</Button>
