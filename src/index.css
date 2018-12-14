@@ -2,6 +2,23 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.nav-color {
+	background-image: linear-gradient(#A39367, #877A52);
+}
+
+.footer-color {
+	background-image: linear-gradient(#987FB2, #6C5293);
+	color: white;
+}
+
+footer a {
+	color: rgba(255,255,255,.75);
+}
+
+footer a:hover {
+	color: #A39367;
+}
+
 .nav-link {
 	margin-right: .3rem;
 }

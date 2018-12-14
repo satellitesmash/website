@@ -51,7 +51,7 @@ export default class NavBar extends React.Component {
     render() {
         return (
             <div>
-                <Navbar color="light" light expand="md">
+                <Navbar className="nav-color" dark expand="md">
                     <Link style={{ color: 'black' }} to="/home"><NavItem className="navbar-brand">WA Ultimate</NavItem></Link>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
