@@ -12,7 +12,7 @@ class OurContent extends Component {
                     </Media>
                     <Media body>
                         <Media heading href="https://www.youtube.com/channel/UCqB7d-vcBxxlccHB3oMk6ew">
-                            SatelliteSmash
+                            We are SatelliteSmash
                     </Media>
                         We are an organization that streams, organizes tournaments, and supports the Ultimate community!
                 </Media>
@@ -23,8 +23,9 @@ class OurContent extends Component {
                     <iframe title="playlist2" className="playlists" style={{ marginLeft: 'auto', marginRight: 'auto' }} src="https://www.youtube.com/embed/?listType=playlist&list=PL9ieIw6nXWjI-d243EZVR0ut9ijW73P-r" frameBorder="5" allowFullScreen></iframe>
                     <iframe title="playlist3" className="playlists" style={{ marginLeft: 'auto', marginRight: 'auto' }} src="https://www.youtube.com/embed/?listType=playlist&list=PL9ieIw6nXWjKRFpQT6kvkBeEpkIi1-xhj" frameBorder="5" allowFullScreen></iframe>
                     <iframe title="playlist4" className="playlists" style={{ marginLeft: 'auto', marginRight: 'auto' }} src="https://www.youtube.com/embed/?listType=playlist&list=PL9ieIw6nXWjL2Ll6rHmjMDTRm3VxBktxS" frameBorder="5" allowFullScreen></iframe>
-                   
                 </div>
+                <h4>How to be Featured</h4>
+                <p className="lead">To be added to this list, please reach out to us on Twitter, Discord, or Facebook and provide the content you want us to share!</p>
             </React.Fragment>
         );
     }

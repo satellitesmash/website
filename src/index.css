@@ -31,9 +31,26 @@ footer a:hover {
 	flex-direction: column;
 }
 
+.section-space {
+	margin-top: 2rem;
+}
+
 main {
 	margin: 2rem 0rem;
 }
+
+@media (min-width: 575px) {
+	
+	.label-space {
+		margin-right: 1rem;
+	}
+
+	.form-space {
+		margin: 1rem 0;
+	}
+
+}
+
 
 /*
 for different sized browsers

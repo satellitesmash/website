@@ -28,9 +28,6 @@ class Footer extends Component {
                                 <li>
                                     <Link to="/vods">VODS / Streams</Link>
                                 </li>
-                                <li>
-                                    <Link to="/services">Services</Link>
-                                </li>
                             </ul>
                         </div>
                         {/* <div className="col-md-3 mb-md-0 mb-3">

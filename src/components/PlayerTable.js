@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Table, Label, Input, Form, FormGroup, Pagination, PaginationItem } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import FilteredTable from './FilteredTable';
+import CreatePages from './CreatePages';
 
 class PlayerTable extends Component {
 
     constructor() {
         super();
         this.state = {
-            filterStr: '',
+            filteredArray: null,
+            fullFilteredArray: null,
             filterType: 'displayName',
             perPage: 10,
             arrayStart: 0
@@ -18,36 +20,57 @@ class PlayerTable extends Component {
         if (type === "increase") {
             if (this.state.arrayStart < this.props.players.length - 1) {
                 let newPage = this.state.arrayStart + this.state.perPage;
-                this.setState({ arrayStart: newPage });
+                this.setState({ 
+                    arrayStart: newPage,
+                    filteredArray: this.props.players.slice(newPage, newPage + this.state.perPage)
+                });
             }
         } else if (type === "jump") {
+            console.log(value);
+            let start = value * this.state.perPage;
             this.setState({
-                arrayStart: (value) * this.state.perPage
+                arrayStart: start,
+                filteredArray: start + this.state.perPage 
             });
         } else if (type === "decrease") {
             if (this.state.arrayStart - this.state.perPage >= 0) {
                 let newPage = this.state.arrayStart - this.state.perPage;
-                this.setState({ arrayStart: newPage });
+                this.setState({ 
+                    arrayStart: newPage,
+                    filteredArray: newPage === 0 && this.state.filterString ? null : this.props.players.slice(newPage, newPage + this.state.perPage) 
+                });
             }
         }
     }
 
-    render() {
-        let pages = [];
-        for (let i = 0; i < (this.props.players.length / this.state.perPage); i++) {
-            pages.push(
-                <PaginationItem key={"page" + (i + 1)} onClick={() => this.pageChange("jump", i)}>
-                    <span className="page-link">
-                        {i + 1}
-                    </span>
-                </PaginationItem>
-            );
+    filterArray = (filterString) => {
+        if (filterString !== "") {
+            let filtered = this.props.players.filter((info) => {
+                let value = info.data[this.state.filterType].toLowerCase();
+                return value.includes(filterString.toLowerCase());
+            });
+            this.setState({
+                filteredArray: filtered,
+                filterString: filterString,
+                filterType: this.state.filterType,
+                arrayStart: 0
+            });
+        } else {
+            this.setState({
+                filteredArray: null,
+                filterString: null
+            })
         }
+
+    }
+
+    render() {
+        console.log(this.state);
         return (
             <React.Fragment>
                 <Form inline>
                     <Label style={{ margin: '1rem' }}>Filter</Label>
-                    <Input type="text" id="filter" onChange={(event) => this.setState({ filterStr: event.target.value })} placeholder="Enter filter term"></Input>
+                    <Input type="text" id="filter" onChange={(event) => this.filterArray(event.target.value)} placeholder="Enter filter term"></Input>
                     <FormGroup>
                         <Label style={{ margin: '1rem' }} for="playerSelect">Players per page</Label>
                         <Input type="select" onChange={(event) => this.setState({ perPage: event.target.value })} name="select" id="playerSelect">
@@ -77,24 +100,7 @@ class PlayerTable extends Component {
                             <th>Twitter</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {this.props.players.slice(this.state.arrayStart, this.state.arrayStart + this.state.perPage).filter((info) => {
-                            let value = info.data[this.state.filterType].toLowerCase();
-                            return value.includes(this.state.filterStr.toLowerCase());
-                        }).map((info, i) => {
-                            let player = info.data;
-                            return (
-                                <tr key={"player" + i}>
-                                    <th scope="row">{i + 1}</th>
-                                    <td><Link to={`/player/${info.key}`}>{player.displayName}</Link></td>
-                                    <td>{player.region}</td>
-                                    <td>{player.main}</td>
-                                    <td>{player.secondary}</td>
-                                    <td><a href={`https://twitter.com/${player.twitter}`}>{player.twitter}</a></td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
+                    <FilteredTable players={this.state.filteredArray || this.props.players.slice(this.state.arrayStart, this.state.arrayStart + this.state.perPage)}></FilteredTable>
                 </Table>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Pagination aria-label="Page navigation example">
@@ -102,7 +108,7 @@ class PlayerTable extends Component {
                             <span className="page-link" aria-hidden="true">&laquo;</span>
                             <span className="sr-only">Previous</span>
                         </PaginationItem>
-                        {pages}
+                        <CreatePages perPage={this.state.perPage} array={this.state.filteredArray || this.props.players} pageChange={this.pageChange}></CreatePages>
                         <PaginationItem onClick={() => this.pageChange("increase")}>
                             <span className="page-link" aria-hidden="true">&raquo;</span>
                             <span className="sr-only">Next</span>

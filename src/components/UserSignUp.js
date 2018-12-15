@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button, Alert, Container } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
@@ -22,7 +23,7 @@ class UserSignUp extends Component {
             .then((firebaseUser) => {
                 let id = firebaseUser.user.uid;
                 let data = {
-                    region: "", bio: "", displayName: this.state.displayName, twitter: '', main: '', secondary: '',
+                    region: "", city: '', bio: "", displayName: this.state.displayName, twitter: '', discord: '', main: '', secondary: '',
                     photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg'
                 }
                 let userRef = firebase.database().ref("userData").child(`${id}`);
@@ -47,6 +48,9 @@ class UserSignUp extends Component {
         return (
             <React.Fragment>
                 <Container>
+                    <div className="text-center mb-4">
+                        <img width="20%" src={require("../assets/WASmash.png")}></img>
+                    </div>
                     <Form style={{ width: "50%", marginLeft: 'auto', marginRight: 'auto' }}>
                         <FormGroup>
                             <Label for="displayName">Tag</Label>
@@ -64,8 +68,8 @@ class UserSignUp extends Component {
                         <div style={{ textAlign: 'center' }}>
                             <Button onClick={(event) => this.signUp(event)} color="primary">Sign Up</Button>
                         </div>
-                        <div style={{ textAlign: 'center', padding: '5px', paddingTop: '80px', paddingBottom: '50px' }}>
-                            <a href="#/signin">Already have an account? Sign in here.</a>
+                        <div style={{ textAlign: 'center', padding: '5px', paddingTop: '50px', paddingBottom: '20px' }}>
+                            <Link to="/signin">Already have an account? Sign in here.</Link>
                         </div>
                     </Form>
                 </Container>

@@ -17,12 +17,14 @@ class ProfileField extends Component {
 			email: null,
 			profilePic: null,
 			region: null,
+			city: '',
 			bio: '',
 			twitter: '',
 			confirm: null,
 			error: null,
 			main: '',
 			secondary: '',
+			discord: '',
 			showLoader: false,
 			crop: {
 				width: 50,
@@ -43,11 +45,13 @@ class ProfileField extends Component {
 				photoURL: this.props.photoURL,
 				email: this.props.email,
 				bio: fromDB.bio,
+				city: fromDB.city,
 				region: fromDB.region,
 				twitter: fromDB.twitter,
 				main: fromDB.main,
 				ready: true,
-				secondary: fromDB.secondary
+				secondary: fromDB.secondary,
+				discord: fromDB.discord
 			});
 		})
 	}
@@ -93,9 +97,6 @@ class ProfileField extends Component {
 			confirm: null
 		});
 		let user = firebase.auth().currentUser;
-		// if (this.state.email !== this.props.email) {
-		// 	user.updateEmail(this.state.email).then((user)=> console.log(user));
-		// }
 		let updateInfo = {};
 		if (this.state.tag !== this.props.displayName) {
 			updateInfo.displayName = this.state.tag;
@@ -103,10 +104,13 @@ class ProfileField extends Component {
 		let data = {
 			bio: this.state.bio,
 			region: this.state.region,
+			city: this.state.city,
 			displayName: this.state.tag,
 			twitter: this.state.twitter,
+			discord: this.state.discord,
 			main: this.state.main,
-			secondary: this.state.secondary
+			secondary: this.state.secondary,
+			photoUrl: this.state.photoURL
 		}
 		this.toggleLoader();
 		this.userRef.set(data)
@@ -158,86 +162,104 @@ class ProfileField extends Component {
 	render() {
 		return (
 			this.state.ready ?
-				<Form>
-					<FormGroup>
+				<React.Fragment>
+					<h4 className="section-space">Player Details</h4>
+					<Form>
 						<FormGroup>
 							<Label for="exampleEmail">Email</Label>
 							<Input type="email" disabled name="email" id="exampleEmail" onChange={(event) => this.updateValue("email", event.target.value)} value={this.state.email} placeholder="Email" />
 						</FormGroup>
+					</Form>
+					<Form inline>
 						<FormGroup>
-							<Label for="tag">Tag</Label>
-							<Input type="tag" name="tag" id="tag" onChange={(event) => this.updateValue("tag", event.target.value)} value={this.state.tag} placeholder="tag placeholder" />
+							<Label className="label-space" for="tag">Tag</Label>
+							<Input className="label-space" type="tag" name="tag" id="tag" onChange={(event) => this.updateValue("tag", event.target.value)} value={this.state.tag} placeholder="tag placeholder" />
 						</FormGroup>
-					</FormGroup>
-					<FormGroup>
-						<Label for="exampleSelect">Main</Label>
-						<Input type="select" value={this.state.main} onChange={(event) => this.updateValue("main", event.target.value)} name="select" id="exampleSelect">
-							{characterOptions.map((character, i) => {
-								return <option key={"character" + i}>{character}</option>
-							})}
-						</Input>
-					</FormGroup>
-					<FormGroup>
-						<Label for="secondarySelect">Secondary(s)</Label>
-						<Input type="select" value={this.state.secondary} onChange={(event) => this.updateValue("secondary", event.target.value)} name="select" id="secondarySelect">
-							{characterOptions.map((character, i) => {
-								return <option key={"character" + i}>{character}</option>
-							})}
-						</Input>
-					</FormGroup>
-					<FormGroup>
-						<Label for="exampleSelect">Region of Washington</Label>
-						<Input type="select" value={this.state.region} onChange={(event) => this.updateValue("region", event.target.value)} name="select" id="exampleSelect">
-							<option></option>
-							<option>WWA</option>
-							<option>EWA</option>
-						</Input>
-					</FormGroup>
-					<FormGroup>
-						<Label for="twitter">Twitter Handle</Label>
-						<Input type="twitter" name="twitter" id="twitter" onChange={(event) => this.updateValue("twitter", event.target.value)} value={this.state.twitter} placeholder="twitter placeholder" />
-					</FormGroup>
-					<FormGroup>
-						<Label for="exampleText">Bio (max 300 characters!)</Label>
-						<Input type="textarea" maxLength="200" value={this.state.bio} onChange={(event) => this.updateValue("bio", event.target.value)} name="text" id="exampleText" />
-					</FormGroup>
-					<FormGroup>
-						<Label for="exampleFile">Profile Picture</Label>
-						<Input type="file" name="file" accept=".jpg,.png,.jpeg,.gif" onChange={(event) => {
-							var reader = new FileReader();
-							reader.addEventListener("load", () => {
-								this.setState({
-									dataUrl: reader.result
-								})
-							}, false);
-							reader.readAsDataURL(event.target.files[0]);
-							this.setState({ profilePic: event.target.files[0], picUrl: null })
-						}} id="exampleFile" />
-						{this.state.dataUrl &&
-							<React.Fragment>
-								<ReactCrop src={this.state.dataUrl} onImageLoaded={this.onImageLoaded} onComplete={this.onCropComplete} onChange={this.cropChange} crop={this.state.crop}></ReactCrop>
-								<div>
-									<Button onClick={() => {
-										this.getCroppedImg(this.imageRef, this.state.actualCrop, "newProfilePic.jpg");
-									}}>Apply crop</Button>
-								</div>
-							</React.Fragment>}
-						{this.state.picUrl && <div>
-							<h2 style={{ marginTop: '1rem' }}>Cropped Picture</h2>
-							<p className="lead">Click update to finalize your cropped picture!</p>
-							<img src={this.state.picUrl} width="200" alt="cropped"></img>
-						</div>}
-						<FormText color="muted">
-							Update your profile picture here!
+						<FormGroup>
+							<Label className="label-space" for="exampleSelect">Main</Label>
+							<Input className="label-space" type="select" value={this.state.main} onChange={(event) => this.updateValue("main", event.target.value)} name="select" id="exampleSelect">
+								{characterOptions.map((character, i) => {
+									return <option key={"character" + i}>{character}</option>
+								})}
+							</Input>
+						</FormGroup>
+						<FormGroup>
+							<Label className="label-space" for="secondarySelect">Secondary</Label>
+							<Input type="select" value={this.state.secondary} onChange={(event) => this.updateValue("secondary", event.target.value)} name="select" id="secondarySelect">
+								{characterOptions.map((character, i) => {
+									return <option key={"character" + i}>{character}</option>
+								})}
+							</Input>
+						</FormGroup>
+					</Form>
+					<Form inline className="form-space">
+						<FormGroup>
+							<Label className="label-space" for="exampleSelect">Region of Washington</Label>
+							<Input className="label-space" type="select" value={this.state.region} onChange={(event) => this.updateValue("region", event.target.value)} name="select" id="exampleSelect">
+								<option></option>
+								<option>WWA</option>
+								<option>EWA</option>
+							</Input>
+						</FormGroup>
+						<FormGroup>
+							<Label className="label-space" for="city">City</Label>
+							<Input type="city" value={this.state.city} onChange={(event) => this.updateValue("city", event.target.value)}></Input>
+						</FormGroup>
+					</Form>
+					<h4 className="section-space">Social Media and Other Info</h4>
+					<Form inline className="form-space">
+						<FormGroup>
+							<Label className="label-space" for="twitter">Twitter Handle</Label>
+							<Input style={{ marginRight: '1rem' }} type="twitter" name="twitter" id="twitter" onChange={(event) => this.updateValue("twitter", event.target.value)} value={this.state.twitter} placeholder="Twitter" />
+						</FormGroup>
+						<FormGroup>
+							<Label className="label-space" for="discord">Discord</Label>
+							<Input type="discord" name="discord" id="discord" onChange={(event) => this.updateValue("discord", event.target.value)} value={this.state.discord} placeholder="Discord" />
+						</FormGroup>
+					</Form>
+					<Form>
+						<FormGroup>
+							<Label for="exampleText">Bio (max 300 characters!)</Label>
+							<Input type="textarea" maxLength="200" value={this.state.bio} onChange={(event) => this.updateValue("bio", event.target.value)} name="text" id="exampleText" />
+						</FormGroup>
+						<FormGroup>
+							<Label for="exampleFile">Profile Picture</Label>
+							<Input type="file" name="file" accept=".jpg,.png,.jpeg,.gif" onChange={(event) => {
+								var reader = new FileReader();
+								reader.addEventListener("load", () => {
+									this.setState({
+										dataUrl: reader.result
+									})
+								}, false);
+								reader.readAsDataURL(event.target.files[0]);
+								this.setState({ profilePic: event.target.files[0], picUrl: null })
+							}} id="exampleFile" />
+							{this.state.dataUrl &&
+								<React.Fragment>
+									<ReactCrop src={this.state.dataUrl} onImageLoaded={this.onImageLoaded} onComplete={this.onCropComplete} onChange={this.cropChange} crop={this.state.crop}></ReactCrop>
+									<div>
+										<Button onClick={() => {
+											this.getCroppedImg(this.imageRef, this.state.actualCrop, "newProfilePic.jpg");
+										}}>Apply crop</Button>
+									</div>
+								</React.Fragment>}
+							{this.state.picUrl && <div>
+								<h2 style={{ marginTop: '1rem' }}>Cropped Picture</h2>
+								<p className="lead">Click update to finalize your cropped picture!</p>
+								<img src={this.state.picUrl} width="200" alt="cropped"></img>
+							</div>}
+							<FormText color="muted">
+								Update your profile picture here!
           			</FormText>
-						<img src={this.state.photoURL} alt="profile" width="200" height="auto"></img>
-					</FormGroup>
+							<img src={this.state.photoURL} alt="profile" width="200" height="auto"></img>
+						</FormGroup>
+					</Form>
 					<Button onClick={this.updateInformation}>Update</Button>
 					{this.state.confirm && <Alert style={{ marginTop: '1rem' }} color="success">{this.state.confirm}</Alert>}
 					{this.state.error && <Alert style={{ marginTop: '1rem' }} color="danger">{this.state.error}</Alert>}
 					{this.state.showLoader && <img style={{ marginLeft: '1rem' }} alt="loading symbol" src={require("../assets/loader.gif")}></img>}
-				</Form> :
-				<div style={{ textAlign: 'center', marginTop: '5rem' }}>
+				</React.Fragment> :
+				<div style={{ textAlign: 'center', margin: '5rem 0' }}>
 					<img alt="loading symbol" src={require("../assets/loader.gif")}></img>
 				</div>
 		);

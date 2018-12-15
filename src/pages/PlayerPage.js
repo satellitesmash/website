@@ -14,37 +14,41 @@ class PlayerPage extends Component {
 
     componentDidMount() {
         let retrievePlayer = this.props.match.params.playerid;
-        let playerRef = firebase.database().ref("userData").child(retrievePlayer);
-        this.playerInfo = playerRef.on("value", (snapshot) => {
+        this.playerRef = firebase.database().ref("userData").child(retrievePlayer);
+        this.playerRef.on("value", (snapshot) => {
             this.setState({
                 player: snapshot.val().data
-            })
+            });
         })
     }
 
+    componentWillUnmount() {
+        this.playerRef.off();
+    }
 
     render() {
+        console.log(this.state.player)
         let player = this.state.player;
         return (
             <React.Fragment>
                 {player ?
                     <Container id="playerArea">
                         <Row style={{ alignItems: 'center' }}>
+                            <Col>
+                                <ListGroup>
+                                    <ListGroupItem style={{ textAlign: 'center' }}>
+                                        <img alt="profile" src={player.photoUrl || require('../assets/avatar.jpg')} width="200" height="200"></img>
+                                    </ListGroupItem>
+                                </ListGroup>
+                            </Col>
                             <Col style={{ textAlign: 'center' }}>
                                 <h1>{player.displayName}</h1>
                                 <ListGroup>
                                     <ListGroupItem>
                                         <span><strong>Main: </strong>{player.main}</span>
                                     </ListGroupItem>
-                                    <ListGroupItem><span><strong>Secondary(s): </strong>{player.secondary1}</span></ListGroupItem>
+                                    <ListGroupItem><span><strong>Secondary: </strong>{player.secondary}</span></ListGroupItem>
                                     <ListGroupItem>{player.bio}</ListGroupItem>
-                                </ListGroup>
-                            </Col>
-                            <Col>
-                                <ListGroup>
-                                    <ListGroupItem style={{ textAlign: 'center' }}>
-                                        <img alt="profile" src={player.photoUrl || require('../assets/avatar.jpg')} width="200" height="200"></img>
-                                    </ListGroupItem>
                                 </ListGroup>
                             </Col>
                         </Row>
@@ -57,12 +61,25 @@ class PlayerPage extends Component {
                                         <strong>Region: </strong>{player.region}
                                     </ListGroupItem>
                                     <ListGroupItem>
-                                        <strong>Twitter: </strong><a href={`https://twitter.com/${player.twitter}`}><span>@</span>{player.twitter}</a>
+                                        <strong>City: </strong>{player.city}
                                     </ListGroupItem>
+                                    {player.twitter !== "" &&
+                                        <ListGroupItem>
+                                            <strong>Twitter: </strong><a href={`https://twitter.com/${player.twitter}`}><span>@</span>{player.twitter}</a>
+                                        </ListGroupItem>}
+                                    {player.discord !== "" &&
+                                        <ListGroupItem>
+                                            <strong>Discord: </strong>{player.discord}
+                                        </ListGroupItem>}
                                 </ListGroup>
                             </Col>
                             <Col>
                                 <h3>Rankings</h3>
+                                <ListGroup>
+                                    <ListGroupItem>
+                                        Coming soon!
+                                    </ListGroupItem>
+                                </ListGroup>
                             </Col>
                         </Row>
                     </Container> :

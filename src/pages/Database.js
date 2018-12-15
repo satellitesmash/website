@@ -38,7 +38,7 @@ class Database extends Component {
         return (
             <React.Fragment>
                 <h1>Player Database</h1>
-                <p className="lead">Search for fellow players in Washington! You can filter based on tag below.</p>
+                <p className="lead">Search for fellow players in Washington! You can filter based on various criteria below. Click a player's tag to see their profile!</p>
                 {this.state.players ? <PlayerTable players={this.state.players}></PlayerTable> :
                     <div style={{ textAlign: 'center', marginTop: '4rem', marginBottom: '4rem' }}>
                         <img alt="loading symbol" src={require("../assets/loader.gif")}></img>

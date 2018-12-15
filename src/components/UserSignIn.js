@@ -32,6 +32,9 @@ export class UserSignIn extends Component {
         return (
             <React.Fragment>
                 <Container>
+                    <div className="text-center mb-4">
+                        <img width="20%" src={require("../assets/WASmash.png")}></img>
+                    </div>
                     <Form style={{ width: "50%", marginLeft: 'auto', marginRight: 'auto' }}>
                         <FormGroup>
                             <Label for="email">Email</Label>
@@ -45,12 +48,12 @@ export class UserSignIn extends Component {
                         <div style={{textAlign: 'center'}}>
                             <Button onClick={(event) => this.signIn(event)} color="primary">Sign In</Button>
                         </div>
-                        <div style={{textAlign: 'center', padding: '5px', paddingTop: '100px'}}>
+                        <div style={{textAlign: 'center', padding: '5px', paddingTop: '50px', paddingBottom: '20px'}}>
                             <a href="#/signup">Don't have an account? Sign up here.</a>
                         </div>
-                        <div style={{textAlign: 'center', padding: '5px', paddingBottom: '50px'}}>
+                        {/* <div style={{textAlign: 'center', padding: '5px', paddingBottom: '20px'}}>
                             <a href="#/home">Forgot your password? Click here.</a>
-                        </div>
+                        </div> */}
                     </Form>
                 </Container>
             </React.Fragment>
