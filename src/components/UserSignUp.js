@@ -49,7 +49,7 @@ class UserSignUp extends Component {
             <React.Fragment>
                 <Container>
                     <div className="text-center mb-4">
-                        <img width="20%" src={require("../assets/WASmash.png")}></img>
+                        <img width="20%" alt="Logo" src={require("../assets/WASmash.png")}></img>
                     </div>
                     <Form style={{ width: "50%", marginLeft: 'auto', marginRight: 'auto' }}>
                         <FormGroup>

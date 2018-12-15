@@ -27,7 +27,6 @@ class PlayerPage extends Component {
     }
 
     render() {
-        console.log(this.state.player)
         let player = this.state.player;
         return (
             <React.Fragment>

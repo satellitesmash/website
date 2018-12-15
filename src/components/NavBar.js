@@ -41,6 +41,12 @@ export default class NavBar extends React.Component {
         this.authUnregFunc();
     }
 
+    compress = () => {
+        if (window.innerWidth <= 767) {
+            this.setState({ isOpen: !this.state.isOpen })
+        }
+    }
+
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
@@ -65,19 +71,19 @@ export default class NavBar extends React.Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Link className="nav-link" to="/home">Home</Link>
+                                <Link className="nav-link" to="/home" onClick={this.compress}>Home</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/database">Database</Link>
+                                <Link className="nav-link" to="/database" onClick={this.compress}>Database</Link>
                             </NavItem>
                             {/* <NavItem>
                                 <Link className="nav-link" to="/news">News</Link>
                             </NavItem> */}
                             <NavItem>
-                                <Link className="nav-link" to="/calendar">Calendar</Link>
+                                <Link className="nav-link" to="/calendar" onClick={this.compress}>Calendar</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/vods">VODS / Streams</Link>
+                                <Link className="nav-link" to="/vods" onClick={this.compress}>VODS / Streams</Link>
                             </NavItem>
                             {/* <NavItem>
                                 <Link className="nav-link" to="/rankings">Rankings</Link>
@@ -87,12 +93,15 @@ export default class NavBar extends React.Component {
                             </NavItem> */}
                             {this.state.user &&
                                 <NavItem>
-                                    <Link className="nav-link" to="/profile">Profile</Link>
+                                    <Link className="nav-link" to="/profile" onClick={this.compress}>Profile</Link>
                                 </NavItem>
                             }
                             <NavItem>
                                 {this.state.user ?
-                                    <Button onClick={() => firebase.auth().signOut()} color="danger">Log Out</Button>
+                                    <Button onClick={() => {
+                                        firebase.auth().signOut();
+                                        this.compress();
+                                    }} color="danger">Log Out</Button>
                                     :
                                     <Link to="/signin">
                                         <Button color="primary">Log In</Button>
