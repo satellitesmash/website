@@ -1,4 +1,4 @@
-let characterOptions = ['Bayonetta', 'Bowser', 'Bowser Jr.', 'Captain Falcon', 'Chrom',
+let characterOptions = ['None', 'Bayonetta', 'Bowser', 'Bowser Jr.', 'Captain Falcon', 'Chrom',
     'Cloud', 'Corrin', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong',
     'Donkey Kong', 'Dr. Mario', 'Duck Hunt', 'Falco', 'Fox',
     'Ganondorf',
