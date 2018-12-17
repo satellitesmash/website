@@ -70,6 +70,10 @@ class PlayerPage extends Component {
                                         <ListGroupItem>
                                             <strong>Discord: </strong>{player.discord}
                                         </ListGroupItem>}
+                                    {player.friendCode !== "" &&
+                                        <ListGroupItem>
+                                            <strong>Friend Code: </strong>{player.friendCode}
+                                        </ListGroupItem>}
                                 </ListGroup>
                             </Col>
                             <Col>

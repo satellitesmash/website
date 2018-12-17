@@ -24,6 +24,7 @@ class ProfileField extends Component {
 			error: null,
 			main: '',
 			secondary: '',
+			friendCode: '',
 			discord: '',
 			showLoader: false,
 			crop: {
@@ -51,7 +52,8 @@ class ProfileField extends Component {
 				main: fromDB.main,
 				ready: true,
 				secondary: fromDB.secondary,
-				discord: fromDB.discord
+				discord: fromDB.discord,
+				friendCode: fromDB.friendCode
 			});
 		})
 	}
@@ -110,6 +112,7 @@ class ProfileField extends Component {
 			discord: this.state.discord,
 			main: this.state.main,
 			secondary: this.state.secondary,
+			friendCode: this.state.friendCode,
 			photoUrl: this.state.photoURL
 		}
 		this.toggleLoader();
@@ -173,7 +176,7 @@ class ProfileField extends Component {
 					<Form inline>
 						<FormGroup>
 							<Label className="label-space" for="tag">Tag</Label>
-							<Input className="label-space" type="tag" name="tag" id="tag" onChange={(event) => this.updateValue("tag", event.target.value)} value={this.state.tag} placeholder="tag placeholder" />
+							<Input className="label-space" type="tag" name="tag" id="tag" onChange={(event) => this.updateValue("tag", event.target.value)} value={this.state.tag} placeholder="Tag" />
 						</FormGroup>
 						<FormGroup>
 							<Label className="label-space" for="exampleSelect">Main</Label>
@@ -185,7 +188,7 @@ class ProfileField extends Component {
 						</FormGroup>
 						<FormGroup>
 							<Label className="label-space" for="secondarySelect">Secondary</Label>
-							<Input type="select" value={this.state.secondary} onChange={(event) => this.updateValue("secondary", event.target.value)} name="select" id="secondarySelect">
+							<Input className="label-space" type="select" value={this.state.secondary} onChange={(event) => this.updateValue("secondary", event.target.value)} name="select" id="secondarySelect">
 								{characterOptions.map((character, i) => {
 									return <option key={"character" + i}>{character}</option>
 								})}
@@ -193,6 +196,10 @@ class ProfileField extends Component {
 						</FormGroup>
 					</Form>
 					<Form inline className="form-space">
+						<FormGroup>
+							<Label className="label-space" for="friend-code">Friend Code</Label>
+							<Input className="label-space" type="friend-code" name="friend-code" id="friendCode" onChange={(event) => this.updateValue("friendCode", event.target.value)} value={this.state.friendCode} placeholder="Friend Code" />
+						</FormGroup>
 						<FormGroup>
 							<Label className="label-space" for="exampleSelect">Region of Washington</Label>
 							<Input className="label-space" type="select" value={this.state.region} onChange={(event) => this.updateValue("region", event.target.value)} name="select" id="exampleSelect">
@@ -203,7 +210,7 @@ class ProfileField extends Component {
 						</FormGroup>
 						<FormGroup>
 							<Label className="label-space" for="city">City</Label>
-							<Input type="city" value={this.state.city} onChange={(event) => this.updateValue("city", event.target.value)}></Input>
+							<Input className="label-space" type="city" value={this.state.city} onChange={(event) => this.updateValue("city", event.target.value)}></Input>
 						</FormGroup>
 					</Form>
 					<h4 className="section-space">Social Media and Other Info</h4>

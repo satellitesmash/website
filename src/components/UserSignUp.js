@@ -24,7 +24,7 @@ class UserSignUp extends Component {
                 let id = firebaseUser.user.uid;
                 let data = {
                     region: "", city: '', bio: "", displayName: this.state.displayName, twitter: '', discord: '', main: '', secondary: '',
-                    photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg'
+                    friendCode: '', photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg'
                 }
                 let userRef = firebase.database().ref("userData").child(`${id}`);
                 userRef.set({ data: data })
