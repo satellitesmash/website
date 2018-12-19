@@ -12,6 +12,7 @@ import UserSignIn from '../components/UserSignIn';
 import UserSignUp from '../components/UserSignUp';
 import Profile from '../pages/Profile';
 import PlayerPage from '../pages/PlayerPage';
+import Forgot from '../components/Forgot';
 
 class ContentSwitch extends Component {
 
@@ -30,6 +31,7 @@ class ContentSwitch extends Component {
                         {/* <Route path="/rankings" component={Rankings} /> */}
                         <Route path="/calendar" component={Calendar} />
                         <Route path="/profile" component={Profile} />
+                        <Route path="/forgot" component={Forgot} />
                         <Route path="/player/:playerid" component={PlayerPage} />
                         <Redirect to="/home" />
                     </Switch>

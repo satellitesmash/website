@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button, Alert, Container } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -49,11 +50,11 @@ export class UserSignIn extends Component {
                             <Button onClick={(event) => this.signIn(event)} color="primary">Sign In</Button>
                         </div>
                         <div style={{textAlign: 'center', padding: '5px', paddingTop: '50px', paddingBottom: '20px'}}>
-                            <a href="#/signup">Don't have an account? Sign up here.</a>
+                            <Link to="/signup">Don't have an account? Sign up here.</Link>
                         </div>
-                        {/* <div style={{textAlign: 'center', padding: '5px', paddingBottom: '20px'}}>
-                            <a href="#/home">Forgot your password? Click here.</a>
-                        </div> */}
+                        <div style={{textAlign: 'center', padding: '5px', paddingBottom: '20px'}}>
+                            <Link to="/forgot">Forgot your password? Click here.</Link>
+                        </div>
                     </Form>
                 </Container>
             </React.Fragment>
