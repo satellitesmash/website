@@ -34,7 +34,9 @@ export class UserSignIn extends Component {
             <React.Fragment>
                 <Container>
                     <div className="text-center mb-4">
-                        <img width="20%" alt="Logo" src={require("../assets/WASmash.png")}></img>
+                        <Link to="/home">
+                            <img width="20%" alt="Logo" src={require("../assets/WASmash.png")}></img>
+                        </Link>
                     </div>
                     <Form style={{ width: "50%", marginLeft: 'auto', marginRight: 'auto' }}>
                         <FormGroup>
@@ -46,13 +48,13 @@ export class UserSignIn extends Component {
                             <Input type="password" name="password" autoComplete="current-password" value={this.state.password} onChange={(event) => this.updateValue("password", event.target.value)} id="examplePassword" placeholder="Password" />
                         </FormGroup>
                         {this.state.errorMessage && <Alert color="danger">{this.state.errorMessage}</Alert>}
-                        <div style={{textAlign: 'center'}}>
+                        <div style={{ textAlign: 'center' }}>
                             <Button onClick={(event) => this.signIn(event)} color="primary">Sign In</Button>
                         </div>
-                        <div style={{textAlign: 'center', padding: '5px', paddingTop: '50px', paddingBottom: '20px'}}>
+                        <div style={{ textAlign: 'center', padding: '5px', paddingTop: '50px', paddingBottom: '20px' }}>
                             <Link to="/signup">Don't have an account? Sign up here.</Link>
                         </div>
-                        <div style={{textAlign: 'center', padding: '5px', paddingBottom: '20px'}}>
+                        <div style={{ textAlign: 'center', padding: '5px', paddingBottom: '20px' }}>
                             <Link to="/forgot">Forgot your password? Click here.</Link>
                         </div>
                     </Form>
