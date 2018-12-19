@@ -98,50 +98,56 @@ class ProfileField extends Component {
 			error: null,
 			confirm: null
 		});
-		let user = firebase.auth().currentUser;
-		let updateInfo = {};
-		if (this.state.tag !== this.props.displayName) {
-			updateInfo.displayName = this.state.tag;
-		}
-		let data = {
-			bio: this.state.bio,
-			region: this.state.region,
-			city: this.state.city,
-			displayName: this.state.tag,
-			twitter: this.state.twitter,
-			discord: this.state.discord,
-			main: this.state.main,
-			secondary: this.state.secondary,
-			friendCode: this.state.friendCode,
-			photoUrl: this.state.photoURL
-		}
-		this.toggleLoader();
-		this.userRef.set(data)
-			.then(() => {
-				if (this.state.profilePic) {
-					let profilePic = firebase.storage().ref(`images/${user.uid}.jpg`);
-					profilePic.put(this.state.profilePic).then((snapshot) => {
-						snapshot.ref.getDownloadURL().then((url) => {
-							updateInfo.photoURL = url;
-							user.updateProfile(
-								updateInfo
-							).then(() => {
-								firebase.database().ref(`userData/${user.uid}`).child('data/photoUrl').set(updateInfo.photoURL);
-								this.setState({ confirm: "Information successfully updated!", photoURL: updateInfo.photoURL, picUrl: null });
-								this.toggleLoader();
+		if (/[0-9]{4}-[0-9]{4}-[0-9]{4}/g.test(this.state.friendCode) || this.state.friendCode === "") {
+			let user = firebase.auth().currentUser;
+			let updateInfo = {};
+			if (this.state.tag !== this.props.displayName) {
+				updateInfo.displayName = this.state.tag;
+			}
+			let data = {
+				bio: this.state.bio,
+				region: this.state.region,
+				city: this.state.city,
+				displayName: this.state.tag,
+				twitter: this.state.twitter,
+				discord: this.state.discord,
+				main: this.state.main,
+				secondary: this.state.secondary,
+				friendCode: this.state.friendCode,
+				photoUrl: this.state.photoURL,
+			}
+			this.toggleLoader();
+			this.userRef.set(data)
+				.then(() => {
+					if (this.state.profilePic) {
+						let profilePic = firebase.storage().ref(`images/${user.uid}.jpg`);
+						profilePic.put(this.state.profilePic).then((snapshot) => {
+							snapshot.ref.getDownloadURL().then((url) => {
+								updateInfo.photoURL = url;
+								user.updateProfile(
+									updateInfo
+								).then(() => {
+									firebase.database().ref(`userData/${user.uid}`).child('data/photoUrl').set(updateInfo.photoURL);
+									this.setState({ confirm: "Information successfully updated!", photoURL: updateInfo.photoURL, picUrl: null });
+									this.toggleLoader();
+								});
 							});
+						})
+					} else {
+						user.updateProfile(
+							updateInfo
+						).then(() => {
+							this.setState({ confirm: "Information successfully updated!" });
+							this.toggleLoader();
 						});
-					})
-				} else {
-					user.updateProfile(
-						updateInfo
-					).then(() => {
-						this.setState({ confirm: "Information successfully updated!" });
-						this.toggleLoader();
-					});
-				}
+					}
+				})
+				.catch((err) => this.setState({ error: err.message }));
+		} else {
+			this.setState({
+				error: "Friend code does not match the format!"
 			})
-			.catch((err) => this.setState({ error: err.message }));
+		}
 	}
 
 	toggleLoader = () => {
@@ -152,6 +158,13 @@ class ProfileField extends Component {
 		this.setState({
 			[name]: value
 		})
+	}
+
+	cleanInput(value) {
+		value = value.replace(/[^0-9-]/gi, '');
+		this.setState({
+			friendCode: value
+		});
 	}
 
 	onCropComplete = (crop, pixelCrop) => {
@@ -198,8 +211,10 @@ class ProfileField extends Component {
 					<Form inline className="form-space">
 						<FormGroup>
 							<Label className="label-space" for="friend-code">Friend Code</Label>
-							<Input className="label-space" type="friend-code" name="friend-code" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" maxLength="14" required
-							id="friendCode" onChange={(event) => this.updateValue("friendCode", event.target.value)} value={this.state.friendCode} placeholder="XXXX-XXXX-XXXX" />
+							<Input className="label-space" type="friend-code" name="friend-code" maxLength="14" required
+								id="friendCode" onChange={(event) => {
+									this.cleanInput(event.target.value);
+								}} value={this.state.friendCode} placeholder="XXXX-XXXX-XXXX" />
 						</FormGroup>
 						<FormGroup>
 							<Label className="label-space" for="exampleSelect">Region of Washington</Label>

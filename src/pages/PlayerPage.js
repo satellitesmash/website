@@ -72,7 +72,7 @@ class PlayerPage extends Component {
                                         </ListGroupItem>}
                                     {player.friendCode !== "" &&
                                         <ListGroupItem>
-                                            <strong>Friend Code: </strong>{player.friendCode}
+                                            <strong>Friend Code: </strong>{"SW-" + player.friendCode}
                                         </ListGroupItem>}
                                 </ListGroup>
                             </Col>
