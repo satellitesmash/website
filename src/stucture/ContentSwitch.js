@@ -25,7 +25,7 @@ class ContentSwitch extends Component {
                         <Route path="/signup" component={UserSignUp} />
                         <Route path="/database" component={Database} />
                         {/* <Route path="/news" component={News} /> */}
-                        <Route path="/vods" component={OurContent} />
+                        <Route path="/us" component={OurContent} />
                         {/* <Route path="/services" component={Services} /> */}
                         {/* <Route path="/rankings" component={Rankings} /> */}
                         <Route path="/calendar" component={Calendar} />

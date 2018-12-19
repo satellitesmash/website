@@ -198,14 +198,18 @@ class ProfileField extends Component {
 					<Form inline className="form-space">
 						<FormGroup>
 							<Label className="label-space" for="friend-code">Friend Code</Label>
-							<Input className="label-space" type="friend-code" name="friend-code" id="friendCode" onChange={(event) => this.updateValue("friendCode", event.target.value)} value={this.state.friendCode} placeholder="Friend Code" />
+							<Input className="label-space" type="friend-code" name="friend-code" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" maxLength="14" required
+							id="friendCode" onChange={(event) => this.updateValue("friendCode", event.target.value)} value={this.state.friendCode} placeholder="XXXX-XXXX-XXXX" />
 						</FormGroup>
 						<FormGroup>
 							<Label className="label-space" for="exampleSelect">Region of Washington</Label>
 							<Input className="label-space" type="select" value={this.state.region} onChange={(event) => this.updateValue("region", event.target.value)} name="select" id="exampleSelect">
 								<option></option>
-								<option>WWA</option>
 								<option>EWA</option>
+								<option>Greater Seattle</option>
+								<option>NorWA</option>
+								<option>Olympic Peninsula</option>
+								<option>SoWA</option>
 							</Input>
 						</FormGroup>
 						<FormGroup>

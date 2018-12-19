@@ -26,7 +26,7 @@ class Footer extends Component {
                                     <Link to="/calendar">Calendar</Link>
                                 </li>
                                 <li>
-                                    <Link to="/vods">VODS / Streams</Link>
+                                    <Link to="/us">About Us</Link>
                                 </li>
                             </ul>
                         </div>

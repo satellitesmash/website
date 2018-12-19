@@ -83,7 +83,7 @@ export default class NavBar extends React.Component {
                                 <Link className="nav-link" to="/calendar" onClick={this.compress}>Calendar</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/vods" onClick={this.compress}>VODS / Streams</Link>
+                                <Link className="nav-link" to="/us" onClick={this.compress}>About Us</Link>
                             </NavItem>
                             {/* <NavItem>
                                 <Link className="nav-link" to="/rankings">Rankings</Link>
