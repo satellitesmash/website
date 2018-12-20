@@ -42,6 +42,26 @@ const items = [
         src: require('../assets/picture7.jpg'),
         altText: 'Slide 7',
         caption: 'Slide 7'
+    },
+    {
+        src: require('../assets/picture8.jpg'),
+        altText: 'Slide 8',
+        caption: 'Slide 8'
+    },
+    {
+        src: require('../assets/picture9.jpg'),
+        altText: 'Slide 9',
+        caption: 'Slide 9'
+    },
+    {
+        src: require('../assets/picture10.jpg'),
+        altText: 'Slide 10',
+        caption: 'Slide 10'
+    },
+    {
+        src: require('../assets/picture11.jpg'),
+        altText: 'Slide 11',
+        caption: 'Slide 11'
     }
 ];
 
