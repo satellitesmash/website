@@ -121,7 +121,10 @@ for different sized browsers
 
 	.post {
 		flex-basis: 33%;
-		padding: 1rem;
+	}
+
+	.post .card {
+		height: 100%;
 	}
 
 }

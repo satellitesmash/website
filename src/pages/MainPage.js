@@ -71,9 +71,13 @@ class MainPage extends Component {
                                 <div className="post" key={"post" + i}>
                                     <Card>
                                         <CardBody>
-                                            <CardTitle>{post.content.title}</CardTitle>
+                                            <Link style={{ color: "black" }} to={`/news/${post.id}`}>
+                                                <CardTitle>{post.content.title}</CardTitle>
+                                            </Link>
                                             {post.content.author && <CardSubtitle className="mb-3"><span style={{ fontWeight: 'bold' }}>Author:</span> {post.content.author}</CardSubtitle>}
-                                            <CardImg className="post-pic" src={post.content.mainImage.fields.file.url}></CardImg>
+                                            <Link to={`/news/${post.id}`}>
+                                                <CardImg className="post-pic" src={post.content.mainImage.fields.file.url}></CardImg>
+                                            </Link>
                                             <CardText style={{ margin: '1rem' }}>{post.content.content.substring(0, 100) + "..."}</CardText>
                                             <div className="text-center">
                                                 <Link to={`/news/${post.id}`}>
