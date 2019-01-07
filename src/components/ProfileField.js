@@ -63,7 +63,6 @@ class ProfileField extends Component {
 	}
 
 	getCroppedImg(image, pixelCrop, fileName) {
-
 		const canvas = document.createElement('canvas');
 		canvas.width = pixelCrop.width;
 		canvas.height = pixelCrop.height;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContentSwitch from './ContentSwitch';
+import NavBar from '../components/NavBar';
 
 class Structure extends Component {
 
@@ -10,7 +10,7 @@ class Structure extends Component {
         return(
             <Router>
                 <div>
-                    <Header/>
+                    <NavBar/>
                     <ContentSwitch/>
                     <Footer/>
                 </div>

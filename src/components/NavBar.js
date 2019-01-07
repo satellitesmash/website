@@ -60,9 +60,9 @@ export default class NavBar extends React.Component {
                     <Link style={{ color: 'black' }} to="/home">
                         <NavItem className="navbar-brand" style={{ paddingTop: '0' }}>
                             <div style={{ display: 'flex', marginTop: '5px' }}>
-                                <h5 style={{ paddingTop: '5px', display: 'inline-block' }}>WA Smash Ultimate</h5>
+                                <h5 style={{ paddingTop: '5px', display: 'inline-block' }}>Satellite Smash</h5>
                                 <div style={{ display: 'inline-block' }}>
-                                    <img id="brand-pic" width="40" src={require("../assets/WASmashWhite.png")} alt=""></img>
+                                    <img id="brand-pic" width="40" src={require("../assets/satellitesmash.png")} alt="Logo"></img>
                                 </div>
                             </div>
                         </NavItem>
@@ -88,9 +88,9 @@ export default class NavBar extends React.Component {
                             {/* <NavItem>
                                 <Link className="nav-link" to="/rankings">Rankings</Link>
                             </NavItem> */}
-                            {/* <NavItem>
+                            <NavItem>
                                 <Link className="nav-link" to="/services">Services</Link>
-                            </NavItem> */}
+                            </NavItem>
                             {this.state.user &&
                                 <NavItem>
                                     <Link className="nav-link" to="/profile" onClick={this.compress}>Profile</Link>

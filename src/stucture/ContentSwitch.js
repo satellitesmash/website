@@ -10,6 +10,7 @@ import MainPage from '../pages/MainPage';
 import Calendar from '../pages/Calendar';
 import News from '../pages/News';
 import Post from '../components/Post';
+import Services from '../pages/Services';
 import UserSignIn from '../components/UserSignIn';
 import UserSignUp from '../components/UserSignUp';
 import Profile from '../pages/Profile';
@@ -30,7 +31,7 @@ class ContentSwitch extends Component {
                         <Route exact path="/news" component={News} />
                         <Route path="/news/:post" component={Post} />
                         <Route path="/us" component={OurContent} />
-                        {/* <Route path="/services" component={Services} /> */}
+                        <Route path="/services" component={Services} />
                         {/* <Route path="/rankings" component={Rankings} /> */}
                         <Route path="/calendar" component={Calendar} />
                         <Route path="/profile" component={Profile} />

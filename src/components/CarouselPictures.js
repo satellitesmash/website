@@ -65,7 +65,7 @@ const items = [
     }
 ];
 
-class CarouselPictures extends Component {
+export default class CarouselPictures extends Component {
     constructor(props) {
         super(props);
         this.state = { activeIndex: 0 };
@@ -111,7 +111,7 @@ class CarouselPictures extends Component {
                     onExited={this.onExited}
                     key={item.src}
                 >
-                    <img src={item.src} alt={item.altText} width="100%"/>
+                    <img src={item.src} alt={item.altText} width="100%" />
                     {/* <CarouselCaption captionHeader={item.caption} /> */}
                 </CarouselItem>
             );
@@ -131,5 +131,3 @@ class CarouselPictures extends Component {
         );
     }
 }
-
-export default CarouselPictures;

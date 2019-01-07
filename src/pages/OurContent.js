@@ -24,8 +24,6 @@ class OurContent extends Component {
                     <iframe title="playlist3" className="playlists" style={{ marginLeft: 'auto', marginRight: 'auto' }} src="https://www.youtube.com/embed/?listType=playlist&list=PL9ieIw6nXWjKRFpQT6kvkBeEpkIi1-xhj" frameBorder="5" allowFullScreen></iframe>
                     <iframe title="playlist4" className="playlists" style={{ marginLeft: 'auto', marginRight: 'auto' }} src="https://www.youtube.com/embed/?listType=playlist&list=PL9ieIw6nXWjL2Ll6rHmjMDTRm3VxBktxS" frameBorder="5" allowFullScreen></iframe>
                 </div>
-                <h4>How to be Featured</h4>
-                <p className="lead">To be added to this list, please reach out to us on Twitter, Discord, or Facebook and provide the content you want us to share!</p>
             </React.Fragment>
         );
     }

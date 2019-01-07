@@ -38,16 +38,12 @@ class MainPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <section>
-                    <div style={{ position: "relative" }}>
-                        <img src={require("../assets/ult.png")} alt="Logo" width="100%"></img>
-                        <div className="centered">
-                            <h1 style={{ fontSize: "5vw" }} className="text-uppercase">Washington Smash Bros. Ultimate</h1>
-                            <hr className="my-2" />
-                            <p style={{ fontSize: "3vw" }} className="lead">Your destination for connecting with players and learning about the game.</p>
-                        </div>
+                {/* <header style={{ position: "relative" }}>
+                    <img src={require("../assets/mural.png")} alt="Logo" width="100%"></img>
+                    <div className="centered">
+                        <h1 style={{ fontSize: "5vw" }} className="text-uppercase">Satellite Smash</h1>
                     </div>
-                </section>
+                </header> */}
                 <section style={{ margin: '6rem 0', textAlign: 'center' }}>
                     <Container style={{ width: '80%' }}>
                         <h2 style={{ marginBottom: '1rem' }}>About this Site</h2>
@@ -61,7 +57,9 @@ class MainPage extends Component {
                     </Container>
                 </section>
                 <section>
-                    <CarourselPictures></CarourselPictures>
+                    <div id="carousel">
+                        <CarourselPictures></CarourselPictures>
+                    </div>
                 </section>
                 <h2 style={{ margin: '1rem' }}>Recent News</h2>
                 {this.state.posts &&
