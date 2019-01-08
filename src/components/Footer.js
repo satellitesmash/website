@@ -9,7 +9,7 @@ export default class Footer extends Component {
                 <div className="container-fluid text-center text-md-left">
                     <div className="row">
                         <div className="col-md-6 mt-md-0 mt-3">
-                            <h5 className="text-uppercase">SatelliteSmash</h5>
+                            <h5 className="text-uppercase">Satellite Smash</h5>
                             <p>Your destination for Ultimate content!</p>
                         </div>
                         <hr className="clearfix w-100 d-md-none pb-3"></hr>
@@ -23,10 +23,13 @@ export default class Footer extends Component {
                                     <Link to="/database">Database</Link>
                                 </li>
                                 <li>
-                                    <Link to="/calendar">Calendar</Link>
+                                    <Link to="/news">News</Link>
                                 </li>
                                 <li>
-                                    <Link to="/us">About Us</Link>
+                                    <Link to="/events">Events</Link>
+                                </li>
+                                <li>
+                                    <Link to="/calendar">Calendar</Link>
                                 </li>
                             </ul>
                         </div>
@@ -36,12 +39,15 @@ export default class Footer extends Component {
                                 <li>
                                     <Link to="/services">Links & Services</Link>
                                 </li>
+                                <li>
+                                    <Link to="/us">About Us</Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className="footer-copyright text-center py-3">© 2019:
-                    <span> SatelliteSmash</span>
+                    <span> Satellite Smash</span>
                 </div>
             </footer>
         );

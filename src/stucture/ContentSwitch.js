@@ -16,6 +16,7 @@ import UserSignUp from '../components/UserSignUp';
 import Profile from '../pages/Profile';
 import PlayerPage from '../pages/PlayerPage';
 import Forgot from '../components/Forgot';
+import Events from '../pages/Events';
 
 class ContentSwitch extends Component {
 
@@ -32,6 +33,7 @@ class ContentSwitch extends Component {
                         <Route path="/news/:post" component={Post} />
                         <Route path="/us" component={OurContent} />
                         <Route path="/services" component={Services} />
+                        <Route path="/events" component={Events} />
                         {/* <Route path="/rankings" component={Rankings} /> */}
                         <Route path="/calendar" component={Calendar} />
                         <Route path="/profile" component={Profile} />

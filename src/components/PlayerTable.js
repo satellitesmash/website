@@ -53,7 +53,7 @@ class PlayerTable extends Component {
         });
     }
 
-    filterArray = (filterString, perPage=this.state.perPage, type=this.state.filterType) => {
+    filterArray = (filterString, perPage = this.state.perPage, type = this.state.filterType) => {
         if (filterString !== "") {
             let filtered = this.props.players.filter((info) => {
                 let value = info.data[type].toLowerCase();
@@ -110,19 +110,21 @@ class PlayerTable extends Component {
                                 </Input>
                             </FormGroup>
                         </Form>
-                        <Table>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Tag</th>
-                                    <th>Region</th>
-                                    <th>Main</th>
-                                    <th>Secondary</th>
-                                    <th>Twitter</th>
-                                </tr>
-                            </thead>
-                            <FilteredTable players={this.state.filteredArray}></FilteredTable>
-                        </Table>
+                        <div id="database-table">
+                            <Table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tag</th>
+                                        <th>Region</th>
+                                        <th>Main</th>
+                                        <th>Secondary</th>
+                                        <th>Twitter</th>
+                                    </tr>
+                                </thead>
+                                <FilteredTable players={this.state.filteredArray}></FilteredTable>
+                            </Table>
+                        </div>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                             <Pagination aria-label="Page navigation example">
                                 <PaginationItem onClick={() => this.pageChange("decrease")}>

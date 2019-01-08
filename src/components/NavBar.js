@@ -57,7 +57,7 @@ export default class NavBar extends React.Component {
         return (
             <div>
                 <Navbar className="nav-color" dark expand="md">
-                    <Link style={{ color: 'black' }} to="/home">
+                    <Link style={{ color: 'white' }} to="/home">
                         <NavItem className="navbar-brand" style={{ paddingTop: '0' }}>
                             <div style={{ display: 'flex', marginTop: '5px' }}>
                                 <h5 style={{ paddingTop: '5px', display: 'inline-block' }}>Satellite Smash</h5>
@@ -80,6 +80,9 @@ export default class NavBar extends React.Component {
                                 <Link className="nav-link" to="/news">News</Link>
                             </NavItem>
                             <NavItem>
+                                <Link className="nav-link" to="/events" onClick={this.compress}>Events</Link>
+                            </NavItem>
+                            <NavItem>
                                 <Link className="nav-link" to="/calendar" onClick={this.compress}>Calendar</Link>
                             </NavItem>
                             <NavItem>
@@ -89,7 +92,7 @@ export default class NavBar extends React.Component {
                                 <Link className="nav-link" to="/rankings">Rankings</Link>
                             </NavItem> */}
                             <NavItem>
-                                <Link className="nav-link" to="/services">Services</Link>
+                                <Link className="nav-link" to="/services" onClick={this.compress}>Services</Link>
                             </NavItem>
                             {this.state.user &&
                                 <NavItem>
@@ -104,7 +107,7 @@ export default class NavBar extends React.Component {
                                     }} color="danger">Log Out</Button>
                                     :
                                     <Link to="/signin">
-                                        <Button color="primary">Log In</Button>
+                                        <Button id="login" color="primary">Log In</Button>
                                     </Link>
                                 }
                             </NavItem>

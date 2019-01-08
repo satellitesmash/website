@@ -44,12 +44,17 @@ class MainPage extends Component {
                         <h1 style={{ fontSize: "5vw" }} className="text-uppercase">Satellite Smash</h1>
                     </div>
                 </header> */}
-                <section style={{ margin: '6rem 0', textAlign: 'center' }}>
+                <header>
+                    <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                        <img id="logo" src={require("../assets/satellitesmash.png")}></img>
+                    </div>
+                </header>
+                <section style={{ margin: '3rem 0', textAlign: 'center' }}>
                     <Container style={{ width: '80%' }}>
-                        <h2 style={{ marginBottom: '1rem' }}>About this Site</h2>
+                        <h2 style={{ marginBottom: '1rem' }}>WA Smash Lives Here.</h2>
                         <div className="lead">
                             <p>
-                                Designed with the intention of bringing the community together, the Washington Ultimate Database provides players an easy way to connect with
+                                Designed with the intention of bringing the community together, Satellite Smash provides players an easy way to connect with
                                 others for practice and sharing information.
                             </p>
                             <p><Link to="/signin">Sign in</Link> or <Link to="/signup">sign up</Link> to add yourself to the <Link to="/database">database</Link> and start connecting with other players.</p>
@@ -61,7 +66,7 @@ class MainPage extends Component {
                         <CarourselPictures></CarourselPictures>
                     </div>
                 </section>
-                <h2 style={{ margin: '1rem' }}>Recent News</h2>
+                <h2 style={{ margin: '2rem' }}>Recent News</h2>
                 {this.state.posts &&
                     <section id="news-area">
                         {this.state.posts.map((post, i) => {
