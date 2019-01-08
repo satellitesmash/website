@@ -59,8 +59,8 @@ export default class NavBar extends React.Component {
                 <Navbar className="nav-color" dark expand="md">
                     <Link style={{ color: 'white' }} to="/home">
                         <NavItem className="navbar-brand" style={{ paddingTop: '0' }}>
-                            <div style={{ display: 'flex', marginTop: '5px' }}>
-                                <h5 style={{ paddingTop: '5px', display: 'inline-block' }}>Satellite Smash</h5>
+                            <div style={{ display: 'flex', marginTop: '5px', alignItems: 'center' }}>
+                                <h5 style={{ display: 'inline-block', paddingTop: '.5rem' }} id="brand-title">Satellite Smash</h5>
                                 <div style={{ display: 'inline-block' }}>
                                     <img id="brand-pic" width="40" src={require("../assets/satellitesmash.png")} alt="Logo"></img>
                                 </div>
@@ -74,25 +74,22 @@ export default class NavBar extends React.Component {
                                 <Link className="nav-link" to="/home" onClick={this.compress}>Home</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/database" onClick={this.compress}>Database</Link>
-                            </NavItem>
-                            <NavItem>
-                                <Link className="nav-link" to="/news">News</Link>
+                                <Link className="nav-link" to="/players" onClick={this.compress}>Players</Link>
                             </NavItem>
                             <NavItem>
                                 <Link className="nav-link" to="/events" onClick={this.compress}>Events</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/calendar" onClick={this.compress}>Calendar</Link>
-                            </NavItem>
-                            <NavItem>
-                                <Link className="nav-link" to="/us" onClick={this.compress}>About Us</Link>
-                            </NavItem>
-                            {/* <NavItem>
                                 <Link className="nav-link" to="/rankings">Rankings</Link>
-                            </NavItem> */}
+                            </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/services" onClick={this.compress}>Services</Link>
+                                <Link className="nav-link" to="/resources" onClick={this.compress}>Resources</Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link className="nav-link" to="/news">News</Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link className="nav-link" to="/hireus" onClick={this.compress}>Hire Us</Link>
                             </NavItem>
                             {this.state.user &&
                                 <NavItem>
@@ -117,5 +114,5 @@ export default class NavBar extends React.Component {
             </div>
         );
     }
-    
+
 }

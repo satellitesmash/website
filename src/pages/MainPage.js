@@ -46,12 +46,11 @@ export default class MainPage extends Component {
                 <section style={{ margin: '3rem 0', textAlign: 'center' }}>
                     <Container style={{ width: '80%' }}>
                         <h2 style={{ marginBottom: '1rem' }}>WA Smash Lives Here.</h2>
-                        <div className="lead">
+                        <div className="lead text-left">
                             <p>
-                                Designed with the intention of bringing the community together, Satellite Smash provides players an easy way to connect with
-                                others for practice and sharing information.
+                                Satellite Smash is a Seattle-based group dedicated to bringing Western Washington the latest and greatest in the Super Smash Bros. series. We’ve organized Super Smash Bros. for Wii U events, streams, and more around the region since 2015, and we’re going even further with Super Smash Bros. Ultimate.
+                                If you're new to the scene, <Link to="/signup">create</Link> a profile of your own to connect with other players. Then, check out <Link to="/events">Events</Link> for a list of upcoming tournaments and <Link to="/resources">Resources</Link> for access to the regional Facebook group and Discord server. Newcomers are always welcome!
                             </p>
-                            <p><Link to="/signin">Sign in</Link> or <Link to="/signup">sign up</Link> to add yourself to the <Link to="/database">database</Link> and start connecting with other players.</p>
                         </div>
                     </Container>
                 </section>

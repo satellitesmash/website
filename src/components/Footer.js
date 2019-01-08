@@ -20,33 +20,33 @@ export default class Footer extends Component {
                                     <Link to="/home">Home</Link>
                                 </li>
                                 <li>
-                                    <Link to="/database">Database</Link>
-                                </li>
-                                <li>
-                                    <Link to="/news">News</Link>
+                                    <Link to="/players">Players</Link>
                                 </li>
                                 <li>
                                     <Link to="/events">Events</Link>
                                 </li>
                                 <li>
-                                    <Link to="/calendar">Calendar</Link>
+                                    <Link to="/rankings">Rankings</Link>
                                 </li>
                             </ul>
                         </div>
                         <div className="col-md-3 mb-md-0 mb-3">
-                            <h5 className="text-uppercase">Support</h5>
+                            <h5 className="text-uppercase">More Links</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <Link to="/services">Links & Services</Link>
+                                    <Link to="/resources">Resources</Link>
                                 </li>
                                 <li>
-                                    <Link to="/us">About Us</Link>
+                                    <Link to="/news">News</Link>
+                                </li>
+                                <li>
+                                    <Link to="/hireus">Hire Us</Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div className="footer-copyright text-center py-3">© 2019:
+                <div className="footer-copyright text-center py-3 integral">© 2019:
                     <span> Satellite Smash</span>
                 </div>
             </footer>

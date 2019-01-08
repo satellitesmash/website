@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Database from '../pages/Database';
-import OurContent from "../pages/OurContent";
+import Players from '../pages/Players';
+import Hiring from "../pages/Hiring";
 import MainPage from '../pages/MainPage';
-// import Rankings from '../pages/Rankings';
+import Rankings from '../pages/Rankings';
 import Calendar from '../pages/Calendar';
 import News from '../pages/News';
 import Post from '../components/Post';
-import Services from '../pages/Services';
+import Resources from '../pages/Resources';
 import UserSignIn from '../components/UserSignIn';
 import UserSignUp from '../components/UserSignUp';
 import Profile from '../pages/Profile';
@@ -26,13 +26,13 @@ export default class ContentSwitch extends Component {
                         <Route exact path="/home" component={MainPage} />
                         <Route path="/signin" component={UserSignIn} />
                         <Route path="/signup" component={UserSignUp} />
-                        <Route path="/database" component={Database} />
+                        <Route path="/players" component={Players} />
                         <Route exact path="/news" component={News} />
                         <Route path="/news/:post" component={Post} />
-                        <Route path="/us" component={OurContent} />
-                        <Route path="/services" component={Services} />
+                        <Route path="/hireus" component={Hiring} />
+                        <Route path="/resources" component={Resources} />
                         <Route path="/events" component={Events} />
-                        {/* <Route path="/rankings" component={Rankings} /> */}
+                        <Route path="/rankings" component={Rankings} />
                         <Route path="/calendar" component={Calendar} />
                         <Route path="/profile" component={Profile} />
                         <Route path="/forgot" component={Forgot} />

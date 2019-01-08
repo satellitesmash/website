@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import PlayerTable from '../components/PlayerTable';
 
-export default class Database extends Component {
+export default class Players extends Component {
 
     constructor() {
         super();
@@ -37,7 +37,7 @@ export default class Database extends Component {
     render() {
         return (
             <React.Fragment>
-                <h1>Player Database</h1>
+                <h1>Players</h1>
                 <p className="lead">Search for fellow players in Washington! You can filter based on various criteria below. Click a player's tag to see their profile!</p>
                 {this.state.players ? <PlayerTable players={this.state.players}></PlayerTable> :
                     <div style={{ textAlign: 'center', marginTop: '4rem', marginBottom: '4rem' }}>

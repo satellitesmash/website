@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 
-export default class Services extends Component {
+export default class Resources extends Component {
 
     render() {
         return (
             <section>
-                <h1>Links & Services</h1>
-                <div style={{ margin: '1rem 0' }}>
-                    <h3>Hire Satellite Smash</h3>
-                    <p>Interested in contracting Satellite Smash to stream an event? Just click below - we'll be in touch shortly!​</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSddSx3Xi7uuCmDCyj0SVEC8c5QsLWgYu4pf153zQNV3qUnxTQ/viewform" target="_blank" rel="noopener noreferrer"><Button>Hire Us</Button></a>
-                </div>
+                <h1>Resources</h1>
                 <div>
                     <h3>CONTACTS</h3>
                     <ul>
