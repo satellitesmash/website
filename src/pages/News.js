@@ -35,7 +35,7 @@ export default class News extends Component {
         const posts = this.state.posts
         return (
             <section>
-                <h1 className="text-center">News from the Scene</h1>
+                <h1>News from the Scene</h1>
                 {posts ? <PostArea posts={posts}></PostArea> :
                     <div style={{ textAlign: 'center', margin: '5rem 0' }}>
                         <img alt="loading symbol" src={require("../assets/loader.gif")}></img>

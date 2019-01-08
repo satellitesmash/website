@@ -4,7 +4,7 @@ import { Form, FormGroup, Label, Input, Button, Alert, Container } from 'reactst
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-export class Forgot extends Component {
+export default class Forgot extends Component {
 
     constructor() {
         super();
@@ -42,7 +42,7 @@ export class Forgot extends Component {
                 <Container>
                     <div className="text-center mb-4">
                         <Link to="/home">
-                            <img width="20%" alt="Logo" src={require("../assets/WASmash.png")}></img>
+                            <img width="20%" alt="Logo" src={require("../assets/satellitesmash.png")}></img>
                         </Link>
                     </div>
                     <Form style={{ width: "50%", marginLeft: 'auto', marginRight: 'auto' }}>
@@ -64,5 +64,3 @@ export class Forgot extends Component {
         );
     }
 }
-
-export default Forgot;

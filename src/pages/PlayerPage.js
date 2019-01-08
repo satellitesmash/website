@@ -3,7 +3,7 @@ import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import firebase from 'firebase/app';
 import 'firebase/database';
 
-class PlayerPage extends Component {
+export default class PlayerPage extends Component {
 
     constructor() {
         super();
@@ -93,7 +93,4 @@ class PlayerPage extends Component {
         );
     }
 
-
 }
-
-export default PlayerPage;

@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
-class UserSignUp extends Component {
+export default class UserSignUp extends Component {
 
     constructor() {
         super();
@@ -50,7 +50,7 @@ class UserSignUp extends Component {
                 <Container>
                     <div className="text-center mb-4">
                         <Link to="/home">
-                            <img width="20%" alt="Logo" src={require("../assets/WASmash.png")}></img>
+                            <img width="20%" alt="Logo" src={require("../assets/satellitesmash.png")}></img>
                         </Link>
                     </div>
                     <Form style={{ width: "50%", marginLeft: 'auto', marginRight: 'auto' }}>
@@ -78,6 +78,5 @@ class UserSignUp extends Component {
             </React.Fragment>
         );
     }
-}
 
-export default UserSignUp
+}

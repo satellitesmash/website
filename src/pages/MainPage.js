@@ -9,7 +9,7 @@ const client = contentful.createClient({
     accessToken: "310de59f3304fd943bd03d48bdb76c9327318060effc32adb3fa0faa74d5289a"
 });
 
-class MainPage extends Component {
+export default class MainPage extends Component {
 
     constructor() {
         super();
@@ -38,15 +38,9 @@ class MainPage extends Component {
     render() {
         return (
             <React.Fragment>
-                {/* <header style={{ position: "relative" }}>
-                    <img src={require("../assets/mural.png")} alt="Logo" width="100%"></img>
-                    <div className="centered">
-                        <h1 style={{ fontSize: "5vw" }} className="text-uppercase">Satellite Smash</h1>
-                    </div>
-                </header> */}
                 <header>
                     <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                        <img id="logo" src={require("../assets/satellitesmash.png")}></img>
+                        <img id="logo" src={require("../assets/satellitesmash.png")} alt="Logo"></img>
                     </div>
                 </header>
                 <section style={{ margin: '3rem 0', textAlign: 'center' }}>
@@ -100,5 +94,3 @@ class MainPage extends Component {
     }
 
 }
-
-export default MainPage;

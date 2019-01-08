@@ -7,7 +7,7 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import { Button, Form, FormGroup, Label, Input, FormText, Alert } from 'reactstrap';
 
-class ProfileField extends Component {
+export default class ProfileField extends Component {
 
 	constructor() {
 		super();
@@ -290,5 +290,3 @@ class ProfileField extends Component {
 		);
 	}
 }
-
-export default ProfileField;

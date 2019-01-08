@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
 
-class OurContent extends Component {
+export default class OurContent extends Component {
 
     render() {
         return (
@@ -29,5 +29,3 @@ class OurContent extends Component {
     }
 
 }
-
-export default OurContent;

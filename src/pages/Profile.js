@@ -4,7 +4,7 @@ import 'firebase/auth';
 import { Redirect } from "react-router-dom";
 import ProfileField from '../components/ProfileField';
 
-class Profile extends Component {
+export default class Profile extends Component {
 
     constructor() {
         super();
@@ -45,5 +45,3 @@ class Profile extends Component {
     }
 
 }
-
-export default Profile;

@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import PlayerTable from '../components/PlayerTable';
 
-class Database extends Component {
+export default class Database extends Component {
 
     constructor() {
         super();
@@ -48,5 +48,3 @@ class Database extends Component {
     }
 
 }
-
-export default Database;

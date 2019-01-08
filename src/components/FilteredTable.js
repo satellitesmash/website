@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-
-class FilteredTable extends Component {
+export default class FilteredTable extends Component {
 
     render() {
         return (
@@ -24,5 +23,3 @@ class FilteredTable extends Component {
         );
     }
 }
-
-export default FilteredTable;

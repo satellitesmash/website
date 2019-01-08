@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PaginationItem } from 'reactstrap';
 
-class CreatePages extends Component {
+export default class CreatePages extends Component {
 
     render() {
         let pages = [];
@@ -18,5 +18,3 @@ class CreatePages extends Component {
     }
 
 }
-
-export default CreatePages;

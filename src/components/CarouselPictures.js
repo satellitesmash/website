@@ -130,4 +130,5 @@ export default class CarouselPictures extends Component {
             </Carousel>
         );
     }
+    
 }

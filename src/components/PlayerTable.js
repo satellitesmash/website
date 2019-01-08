@@ -3,7 +3,7 @@ import { Table, Label, Input, Form, FormGroup, Pagination, PaginationItem } from
 import FilteredTable from './FilteredTable';
 import CreatePages from './CreatePages';
 
-class PlayerTable extends Component {
+export default class PlayerTable extends Component {
 
     constructor() {
         super();
@@ -145,5 +145,3 @@ class PlayerTable extends Component {
     }
 
 }
-
-export default PlayerTable;
