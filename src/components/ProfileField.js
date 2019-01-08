@@ -16,7 +16,6 @@ export default class ProfileField extends Component {
 			tag: null,
 			email: null,
 			profilePic: null,
-			region: null,
 			city: '',
 			bio: '',
 			twitter: '',
@@ -47,7 +46,6 @@ export default class ProfileField extends Component {
 				email: this.props.email,
 				bio: fromDB.bio,
 				city: fromDB.city,
-				region: fromDB.region,
 				twitter: fromDB.twitter,
 				main: fromDB.main,
 				ready: true,
@@ -105,7 +103,6 @@ export default class ProfileField extends Component {
 			}
 			let data = {
 				bio: this.state.bio,
-				region: this.state.region,
 				city: this.state.city,
 				displayName: this.state.tag,
 				twitter: this.state.twitter,
@@ -214,17 +211,6 @@ export default class ProfileField extends Component {
 								id="friendCode" onChange={(event) => {
 									this.cleanInput(event.target.value);
 								}} value={this.state.friendCode} placeholder="XXXX-XXXX-XXXX" />
-						</FormGroup>
-						<FormGroup>
-							<Label className="label-space" for="exampleSelect">Region of Washington</Label>
-							<Input className="label-space" type="select" value={this.state.region} onChange={(event) => this.updateValue("region", event.target.value)} name="select" id="exampleSelect">
-								<option></option>
-								<option>EWA</option>
-								<option>Greater Seattle</option>
-								<option>NorWA</option>
-								<option>Olympic Peninsula</option>
-								<option>SoWA</option>
-							</Input>
 						</FormGroup>
 						<FormGroup>
 							<Label className="label-space" for="city">City</Label>

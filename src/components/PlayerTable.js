@@ -103,7 +103,7 @@ export default class PlayerTable extends Component {
                                     this.filterArray(this.state.filterString, this.state.perPage, event.target.value);
                                 }} name="select" id="playerSelect">
                                     <option value="displayName">Tag</option>
-                                    <option value="region">Region</option>
+                                    <option value="city">City</option>
                                     <option value="main">Main</option>
                                     <option value="secondary">Secondary</option>
                                     <option value="twitter">Twitter</option>
@@ -116,7 +116,7 @@ export default class PlayerTable extends Component {
                                     <tr>
                                         <th>#</th>
                                         <th>Tag</th>
-                                        <th>Region</th>
+                                        <th>City</th>
                                         <th>Main</th>
                                         <th>Secondary</th>
                                         <th>Twitter</th>

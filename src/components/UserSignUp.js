@@ -23,7 +23,7 @@ export default class UserSignUp extends Component {
             .then((firebaseUser) => {
                 let id = firebaseUser.user.uid;
                 let data = {
-                    region: "", city: '', bio: "", displayName: this.state.displayName, twitter: '', discord: '', main: '', secondary: '',
+                    city: '', bio: "", displayName: this.state.displayName, twitter: '', discord: '', main: '', secondary: '',
                     friendCode: '', photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg'
                 }
                 let userRef = firebase.database().ref("userData").child(`${id}`);

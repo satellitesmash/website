@@ -7,7 +7,7 @@ export default class Hiring extends Component {
         return (
             <section>
                 <div style={{ margin: '1rem 0' }}>
-                    <h3>Hire Satellite Smash</h3>
+                    <h1>Hire Satellite Smash</h1>
                     <p>Interested in contracting Satellite Smash to stream an event? Just click below - we'll be in touch shortly!​</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSddSx3Xi7uuCmDCyj0SVEC8c5QsLWgYu4pf153zQNV3qUnxTQ/viewform" target="_blank" rel="noopener noreferrer"><Button>Hire Us</Button></a>
                 </div>

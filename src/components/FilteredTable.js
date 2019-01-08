@@ -12,7 +12,7 @@ export default class FilteredTable extends Component {
                         <tr key={"player" + i}>
                             <th scope="row">{i + 1}</th>
                             <td><Link to={`/player/${info.key}`}>{player.displayName}</Link></td>
-                            <td>{player.region}</td>
+                            <td>{player.city}</td>
                             <td>{player.main}</td>
                             <td>{player.secondary}</td>
                             <td><a href={`https://twitter.com/${player.twitter}`}>{player.twitter}</a></td>

@@ -36,14 +36,14 @@ export default class Players extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <section>
                 <h1>Players</h1>
                 <p className="lead">Search for fellow players in Washington! You can filter based on various criteria below. Click a player's tag to see their profile!</p>
                 {this.state.players ? <PlayerTable players={this.state.players}></PlayerTable> :
                     <div style={{ textAlign: 'center', marginTop: '4rem', marginBottom: '4rem' }}>
                         <img alt="loading symbol" src={require("../assets/loader.gif")}></img>
                     </div>}
-            </React.Fragment>
+            </section>
         );
     }
 

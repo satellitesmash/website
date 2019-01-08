@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Media, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export default class Events extends Component {
@@ -8,14 +7,11 @@ export default class Events extends Component {
     render() {
         return (
             <section id="events">
-                <div>
-                    <Breadcrumb>
-                        <BreadcrumbItem active><Link to="/events">Events</Link></BreadcrumbItem>
-                        <BreadcrumbItem><Link to="/calendar">Calendar</Link></BreadcrumbItem>
-                    </Breadcrumb>
-                </div>
                 <h1>Events</h1>
                 <p>Western Washington is home to a wide variety of tournaments. Check out descriptions for each below, then consult the event calendar to start planning. For additional information, watch for event postings in the WWA Facebook page.</p>
+                <div style={{ marginBottom: '1rem' }} className="back-button">
+                    <Link to="/calendar"><Button>View Calendar</Button></Link>
+                </div>
                 <h3>Locals</h3>
                 <Media list>
                     <Media>

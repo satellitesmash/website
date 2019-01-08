@@ -57,9 +57,6 @@ export default class PlayerPage extends Component {
                                 <h3>Other information:</h3>
                                 <ListGroup>
                                     <ListGroupItem>
-                                        <strong>Region: </strong>{player.region}
-                                    </ListGroupItem>
-                                    <ListGroupItem>
                                         <strong>City: </strong>{player.city}
                                     </ListGroupItem>
                                     {player.twitter !== "" &&

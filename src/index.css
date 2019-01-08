@@ -47,6 +47,10 @@ footer a {
 	color: rgba(255,255,255,.75);
 }
 
+section h1 {
+	margin-top: 2rem;
+}
+
 footer a:hover {
 	color: #A39367;
 }
@@ -58,6 +62,10 @@ footer a:hover {
 
 #login {
 	margin-top: 0.5rem;
+}
+
+.back-button {
+	margin-top: 1rem;
 }
 
 .nav-link {
@@ -77,7 +85,6 @@ main {
 }
 
 #ranking-page {
-	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
 
@@ -138,7 +145,6 @@ ol a {
 	}
 
 	#ranking-page {
-		margin-top: 3rem;
 		margin-bottom: 5rem;
 	}
 

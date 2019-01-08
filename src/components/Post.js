@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as contentful from 'contentful';
 import ReactMarkdown from 'react-markdown';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const client = contentful.createClient({
     space: "caxwp2tsntec",
@@ -27,11 +29,15 @@ export default class Post extends Component {
 
     render() {
         const post = this.state.post;
-        console.log(post)
         return (
             <section>
+                <div className="mt-3 mb-3">
+                    <Link to="/news">
+                        <Button>Back to News</Button>
+                    </Link>
+                </div>
                 {post &&
-                    <div className="m-5">
+                    <div>
                         <h1>{post.title}</h1>
                         {post.author && <h4>By: {post.author}</h4>}
                         <div className="post-image">
