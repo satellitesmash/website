@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Footer from '../components/Footer';
 import ContentSwitch from './ContentSwitch';
 import NavBar from '../components/NavBar';
@@ -8,7 +8,7 @@ export default class App extends Component {
 
     render() {
         return(
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <div>
                     <NavBar/>
                     <ContentSwitch/>
